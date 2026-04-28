@@ -2,52 +2,48 @@ from openai import OpenAI
 import requests
 from bs4 import BeautifulSoup
 
-# ✅ Connect to local Ollama model
+# Connect to local Ollama model
 client = OpenAI(
     base_url="http://localhost:11434/v1",
-    api_key="anything"  # not needed for local
+    api_key="anything"
 )
 
-# ✅ Take user input
+# Get URL from user
 url = input("Enter URL: ")
 
-# ✅ Fetch webpage with headers (avoid blocking)
+# Fetch webpage
 headers = {
     "User-Agent": "Mozilla/5.0"
 }
 
 response = requests.get(url, headers=headers)
 
-# ✅ Error handling
+# Handle error
 if response.status_code != 200:
-    print("❌ Failed to fetch webpage")
-    print("Status code:", response.status_code)
+    print("Failed to fetch webpage")
     exit()
 
-# ✅ Parse HTML
+# Parse HTML
 soup = BeautifulSoup(response.text, "html.parser")
 
 # Remove unwanted tags
 for tag in soup(["script", "style"]):
     tag.decompose()
 
-# Extract clean text
+# Extract text
 text = soup.get_text(separator=" ", strip=True)
 
-# ✅ Debug: check text size
-print("\n📊 Extracted text length:", len(text))
-
-# ✅ Limit input size (token constraint handling)
+# Limit size (basic token handling)
 if len(text) > 5000:
     text = text[:5000]
 
-# ✅ Send to LLM
+# Send to LLM
 completion = client.chat.completions.create(
     model="llama3.2:1b",
     messages=[
         {
             "role": "system",
-            "content": "Summarize the content into structured bullet points with headings. Avoid repetition and ensure factual correctness."
+            "content": "Summarize the webpage clearly using bullet points."
         },
         {
             "role": "user",
@@ -56,6 +52,6 @@ completion = client.chat.completions.create(
     ]
 )
 
-# ✅ Print output
+# Print result
 print("\n===== SUMMARY =====\n")
 print(completion.choices[0].message.content)
