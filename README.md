@@ -10,81 +10,78 @@ This repository documents my hands-on learning and practical implementation of L
 
 * Connected Python with Gemini API
 * Built a simple prompt → response pipeline
-* Explored prompt engineering basics
+* Learned basic prompt engineering
 
 ---
 
-### ✅ Day 2: LLM Engineering Fundamentals
+### ✅ Day 2: Basic LLM Applications
 
-#### 🔹 What I Learned
+* Used Chat Completions API
+* Built a webpage summarizer
+* Extracted and cleaned webpage data using BeautifulSoup
+* Understood token limits and model constraints
+* Switched between cloud and local models (Ollama)
 
-* Chat Completions API (standard way to interact with LLMs)
-* Difference between SDK vs API-based interaction
-* Switching between cloud models and local models
-* Understanding token limits and model constraints
-* Handling real-world API errors (429, 503, 404)
+---
+
+### ✅ Day 3: LLM Output Control & Reliability
+
+* Learned that LLM outputs are **not reliable by default**
+* Implemented **structured JSON output**
+* Added:
+
+  * JSON parsing (`json.loads`)
+  * Output validation
+  * Retry mechanism
+  * Schema handling
+* Built a multi-step pipeline to handle real-world LLM issues
 
 ---
 
 ## 🛠️ Projects Built
 
-### 🔹 1. Chat API (Structured LLM Interaction)
+### 🔹 1. Chat API
 
+* Implemented system + user message structure
 * Used OpenAI-compatible API format
-* Implemented system + user role-based messaging
-* Parsed structured responses (`choices → message → content`)
 
 ---
 
-### 🔹 2. Local LLM with Ollama
+### 🔹 2. Local LLM (Ollama)
 
-* Ran LLM locally using Ollama (no API cost)
-* Switched from cloud model → local model with minimal code changes
-* Understood trade-offs between performance and cost
-
----
-
-### 🔹 3. Webpage Summarizer (Core Project)
-
-#### 📥 Input:
-
-* Any webpage URL
-
-#### ⚙️ Pipeline:
-
-1. Fetch webpage using `requests`
-2. Clean HTML using `BeautifulSoup`
-3. Remove noise (`script`, `style`, `noscript`)
-4. Extract readable text
-5. Handle token limits (truncate large input)
-6. Send structured prompt to LLM
-7. Generate summarized output
-
-#### 📤 Output:
-
-* Structured bullet-point summary with headings
+* Ran LLM locally without API cost
+* Compared local vs cloud models
 
 ---
 
-## 🧠 Key Concepts Understood
+### 🔹 3. Basic Webpage Summarizer (Day 2)
 
-* LLMs work on **next-token prediction**
-* Prompt design directly affects output quality
-* Token limits restrict input size
-* Local models vs cloud models trade-offs:
-
-  * Local → free, private, less powerful
-  * Cloud → powerful, paid, scalable
-* Small models may produce **hallucinations**
+* Extract webpage content
+* Clean HTML
+* Generate summary using LLM
 
 ---
 
-## ⚠️ Challenges Faced
+### 🔹 4. Structured Summarizer (Day 3)
 
-* ❌ API quota errors (429)
-* ❌ Model availability issues (404)
-* ❌ Server overload (503)
-* ✅ Solution: Switched to local LLM (Ollama)
+* Convert webpage → structured JSON
+* Handle:
+
+  * invalid JSON
+  * extra text
+  * schema mismatches
+  * incomplete outputs
+
+---
+
+## 🧠 Key Concepts
+
+* LLMs work using **next-token prediction**
+* Prompt design affects output quality
+* LLM outputs are **probabilistic**
+* Parsing converts text → usable data
+* Validation ensures correctness
+* Reliability requires multi-step pipelines
 
 ---
 
@@ -95,25 +92,26 @@ This repository documents my hands-on learning and practical implementation of L
 * Ollama (Local LLM)
 * BeautifulSoup
 * Requests
-* dotenv
 
 ---
 
 ## ▶️ How to Run
 
-### 1. Install dependencies
-
 ```bash
 pip install -r requirements.txt
 ```
 
-### 2. Run summarizer
+### Day 2 (Basic Summarizer)
 
 ```bash
-python week1/day2/summarizer.py
+python week1/day2/basic_summarizer.py
 ```
 
-### 3. Enter URL when prompted
+### Day 3 (Structured Summarizer)
+
+```bash
+python week1/day3/structured_summarizer.py
+```
 
 ---
 
@@ -123,30 +121,21 @@ python week1/day2/summarizer.py
 week1/
 │── day1/
 │── day2/
-│   ├── check_models.py
-│   ├── chat_api.py
-│   ├── ollama_chat.py
-│   ├── summarizer.py
+│   ├── basic_summarizer.py
+│
+│── day3/
+│   ├── structured_summarizer.py
 ```
-
----
-
-## 🚀 Next Steps
-
-* Model comparison and evaluation
-* Multi-model workflows
-* Handling long documents (chunking, RAG)
-* Building production-ready LLM applications
 
 ---
 
 ## 💡 Key Insight
 
-> Building with LLMs is not just about calling APIs — it involves data preprocessing, prompt design, model selection, and handling real-world constraints.
+> Calling an LLM is easy.
+> Building reliable systems with LLMs is the real challenge.
 
 ---
 
 ## 👩‍💻 Author
 
 Sri Lekha
-
