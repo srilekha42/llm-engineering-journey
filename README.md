@@ -64,6 +64,18 @@ This repository documents my hands-on learning and practical implementation of L
 ![Gradio UI Preview](week2/day2/gradio_ui.png)
 
 ---
+### ✅ Day 3: Conversation History & System Personas
+
+* Engineered full stateful conversation memory handling to fix the stateless core API limitation
+* Implemented hidden role-based `system_instruction` boundaries to enforce business logic and brand voice
+* Managed complex nested multimodal data structures passed by modern `gr.ChatInterface` state arrays
+* Built a dynamic prompt context injection mechanism (a fundamental blueprint for RAG pipelines)
+
+#### 🛍️ Chatbot Memory & Persona Previews:
+![Chat Assistant Preview Part 1](week2/day3/chat_history1.png)
+![Chat Assistant Preview Part 2](week2/day3/chat_history2.png)
+
+---
 ## 🛠️ Projects Built
 
 ### 🔹 Chat API
@@ -106,7 +118,12 @@ This repository documents my hands-on learning and practical implementation of L
 * Routes prompt inputs to separate cloud engines (`gemini-2.5-flash` or `gemini-2.5-pro`)
 * Uses streaming tokens so users see answers rendering in real-time
 ---
+### 🔹 AI Store Assistant with Memory
+* Developed a structured sales clerk chatbot using Gradio's chat interface
+* Features contextual conversational dialogue tracking across multiple back-and-forth messages
+* Safely processes and translates custom frontend state objects into production-ready API lists
 
+---
 ## 🧠 Key Concepts
 
 * LLMs are **probabilistic systems**
@@ -153,6 +170,11 @@ python week1/day3/structured_summarizer.py
 cd week2/day2
 python day2_ui.py
 ```
+### Week 2 - Day 3 (AI Store Assistant with Memory)
+```Bash
+cd week2/day3
+python day3_chat.py
+```
 ## 📁 Project Structure
 
 .env
@@ -168,7 +190,10 @@ week2/
     └── day2_verify.py
     └── notes.md
     └── gradio_ui.png
-
+│── day3/
+    └── day3_chat.py
+    └── notes.md
+    └── chat_history.png
 ---
 
 ## 💡 Key Insight
