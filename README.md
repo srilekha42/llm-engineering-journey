@@ -76,6 +76,18 @@ This repository documents my hands-on learning and practical implementation of L
 ![Chat Assistant Preview Part 2](week2/day3/chat_history2.png)
 
 ---
+ 
+
+### ✅ Day 4: Function Calling & Relational Database Tools
+
+* Engineered a multi-turn AI Agent capable of orchestrating external tools to overcome LLM knowledge boundaries
+* Intercepted model-generated JSON tool execution definitions to execute local code blocks deterministically
+* Connected the `gemini-2.5-flash` model directly to a local relational **SQLite** database tracking real-time data
+* Enabled a dynamic `while` message-loop evaluation enabling sequential multi-tool data aggregation and compound mathematical logic calculations
+
+#### ✈️ Database Agent Tool Preview:
+![Database Agent Preview](week2/day4/agent_tools.png)
+---
 ## 🛠️ Projects Built
 
 ### 🔹 Chat API
@@ -175,6 +187,11 @@ python day2_ui.py
 cd week2/day3
 python day3_chat.py
 ```
+### Week 2 - Day 4 (Airline AI Agent with SQL Tools)
+```bash
+cd week2/day4
+python day4_tools.py
+```
 ## 📁 Project Structure
 
 .env
@@ -186,14 +203,19 @@ week1/
 week2/
 │── day1/
 │── day2/
-    └── day2_ui.py
-    └── day2_verify.py
-    └── notes.md
-    └── gradio_ui.png
+│   └── day2_ui.py
+│   └── day2_verify.py
+│   └── notes.md
+│   └── gradio_ui.png
 │── day3/
-    └── day3_chat.py
+│   └── day3_chat.py
+│   └── notes.md
+│   └── chat_history1.png
+│   └── chat_history2.png
+│── day4/
+    └── day4_tools.py
     └── notes.md
-    └── chat_history.png
+    └── agent_tools.png
 ---
 
 ## 💡 Key Insight
