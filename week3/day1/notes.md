@@ -1,7 +1,3 @@
-Here's your **notes.md** entry in very simple English:
-
----
-
 # Week 3, Day 1: Open-Source Foundations
 
 ## The Big Shift
