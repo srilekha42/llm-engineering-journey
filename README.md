@@ -94,50 +94,27 @@ This repository documents my hands-on learning and practical implementation of L
 
 ## 📌 Week 3 - Open-Source Foundations
 
-### ✅ Day 1: Hugging Face & Google Colab
-
-Shifted from paid "black box" APIs to free open-source models
-
-Used Hugging Face as the model registry (2M+ free models)
-
-Used Google Colab to rent cloud GPUs (free T4 with 15GB VRAM)
-
-Learned GPU handles thousands of parallel math operations (critical for AI)
-
-Learned VRAM is the memory workbench - models must fit entirely to run
-
-Understood stateless cloud - every Colab session starts fresh
-
-Built:
-
-Text-to-Speech generator using Microsoft SpeechT5 (exported .wav)
-
-Image generator using Stable Diffusion (pop-art style images)
-
-Set up Hugging Face token authentication via Colab secrets
-
-Key Takeaway: Can now run free open-source models on rented GPUs - no longer dependent on paid APIs.
-
-#### ⚠️ Key Rules Learned:
-
-| Rule | Why |
-|------|-----|
-| Restart kernel to wipe VRAM | Models stay in memory; need clean slate for big models |
-| Disconnect runtime when done | Paid GPUs cost per minute - turn them off! |
-| Pip install every time | Fresh computer = nothing installed |
-| Free GPUs can kick you off | Google bumps you if busy - reconnect and restart |
-| Keep token secret | Use Colab secrets, never type it in code |
-
-#### 💡 Why This Matters:
-
-- No longer stuck paying OpenAI for every request
-- Can run free open-source models anywhere
-- Can run models too big for my laptop
-- Learned to rent supercomputers for pennies
-- Prepares for fine-tuning (Weeks 6-7) and RAG (Week 4)
+Here's your even shorter notes.md entry:
 
 ---
 
+## 📌 Week 3 - Open-Source Foundations
+
+### ✅ Day 1: Hugging Face & Google Colab
+
+- Moved from paid APIs to free open-source models
+- Used **Hugging Face** for models (2M+ free)
+- Used **Google Colab** for cloud GPUs (free T4 with 15GB VRAM)
+- Learned GPU = parallel math, VRAM = model must fit entirely
+
+**Built:**
+- Text-to-Speech (Microsoft SpeechT5 → .wav)
+- Image generator (Stable Diffusion)
+- Hugging Face token auth via Colab secrets
+
+**Key Takeaway:** Can now run free models on rented GPUs - no longer API-dependent.
+
+---
 ## 🛠️ Projects Built
 
 ### 🔹 Chat API
