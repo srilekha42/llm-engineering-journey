@@ -136,6 +136,13 @@ This repository documents my hands-on learning and practical implementation of L
 * Safely processes and translates custom frontend state objects into production-ready API lists
 
 ---
+ 
+
+### 🔹 Flighty Airlines Premium Concierge Terminal
+* Created an advanced multi-modal dashboard bridging SQLite database schemas, automated tool calling, and live vocal streaming outputs.
+* Features responsive dark/light styling token adaptivity and decoupled relational logic configurations.
+
+---
 ## 🧠 Key Concepts
 
 * LLMs are **probabilistic systems**
@@ -158,6 +165,8 @@ This repository documents my hands-on learning and practical implementation of L
 * BeautifulSoup
 * Python-dotenv
 * Requests
+* SQLite3
+
 ---
 
 ## ▶️ How to Run
@@ -192,6 +201,11 @@ python day3_chat.py
 cd week2/day4
 python day4_tools.py
 ```
+### Week 2 - Day 5 (Premium Concierge Vocal Terminal Showcase)
+```bash
+Follow instructions in its dedicated repository:
+👉 Flighty Airlines Premium Concierge Terminal
+```
 ## 📁 Project Structure
 
 .env
@@ -213,10 +227,11 @@ week2/
 │   └── chat_history1.png
 │   └── chat_history2.png
 │── day4/
-    └── day4_tools.py
+│   └── day4_tools.py
+│   └── notes.md
+│   └── agent_tools.png
+└── day5/
     └── notes.md
-    └── agent_tools.png
----
 
 ## 💡 Key Insight
 
