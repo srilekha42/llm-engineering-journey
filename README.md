@@ -1,5 +1,3 @@
-Here's your **notes.md** without the project structure section:
-
 ---
 
 # 🚀 LLM Engineering Journey
