@@ -1,5 +1,3 @@
----
-
 # 🚀 LLM Engineering Journey
 
 This repository documents my hands-on learning and practical implementation of Large Language Models (LLMs), focusing on building reliable, real-world systems.
@@ -27,13 +25,14 @@ This repository documents my hands-on learning and practical implementation of L
 ### ✅ Day 3: LLM Output Control & Reliability
 - Learned that LLM outputs are **not reliable by default**
 - Implemented structured JSON output
-- Added: JSON parsing, output validation, retry mechanisms, schema handling
+- Added JSON parsing, output validation, retry mechanisms, and schema handling
 - Built a multi-step pipeline for reliability
 
 ---
 
 ### ✅ Day 5: Pipeline-Based Project (AI Brochure Generator)
 🔗 Project: https://github.com/srilekha42/ai-brochure-generator
+
 - Scraped website content with retry handling
 - Extracted and filtered internal links
 - Identified key pages (About, Docs, Careers)
@@ -72,16 +71,26 @@ This repository documents my hands-on learning and practical implementation of L
 - Used **Hugging Face** for models (2M+ free)
 - Used **Google Colab** for cloud GPUs (free T4 with 15GB VRAM)
 - Learned GPU = parallel math, VRAM = model must fit entirely
-- Built: Text-to-Speech and Image generator
-- Key Takeaway: Can run free models on rented GPUs - no longer API-dependent
+- Built Text-to-Speech and Image Generator
+- **Key Takeaway:** Can run free models on rented GPUs—no longer API-dependent
 
 ---
 
 ### ✅ Day 2: Hugging Face Pipelines
-- Two API levels: **Pipelines** (easy) and **Tokenizers/Models** (advanced)
-- Pipelines = pre-built functions for common AI tasks
-- Built: Sentiment Analysis, NER, Question Answering, Summarization, Translation, Zero-Shot Classification, Text Generation, Image Generation, Text-to-Speech
-- Key Insight: Small specialized models = cheaper, faster, good enough for specific tasks
+- Learned two API levels: **Pipelines** (easy) and **Tokenizers/Models** (advanced)
+- Used pipelines for common AI tasks
+- Built Sentiment Analysis, NER, Question Answering, Summarization, Translation, Zero-Shot Classification, Text Generation, Image Generation, and Text-to-Speech
+- **Key Takeaway:** Small specialized models are faster, cheaper, and good enough for many tasks
+
+---
+
+### ✅ Day 3: Tokenizers, Special Tokens & Chat Templates
+- Learned that LLMs understand **numbers (Token IDs), not text**
+- Explored how **tokenizers** convert text into tokens and token IDs
+- Learned that **every model has its own tokenizer and vocabulary**
+- Understood **special tokens** used to mark the start and end of messages
+- Learned how **`apply_chat_template()`** formats chat conversations before tokenization
+- **Key Takeaway:** Every message must be converted into the exact token format expected by the model before inference.
 
 ---
 
@@ -119,8 +128,11 @@ This repository documents my hands-on learning and practical implementation of L
 - LLMs are **probabilistic systems**
 - Reliability requires pipelines, not single calls
 - LLM APIs are **stateless**; memory must be managed explicitly
+- **LLMs understand Token IDs (numbers), not plain text**
+- **Every model has its own tokenizer and vocabulary**
+- **Chat templates format conversations before tokenization**
 - **GPUs** handle parallel matrix math
-- **VRAM** is the workbench - models must fit completely
+- **VRAM** is the workbench—models must fit completely
 - **Hugging Face** = App Store for free AI models
 - **Google Colab** = Rent powerful computers in the cloud
 - **Training** = teaching the AI (done once, expensive)
@@ -146,39 +158,47 @@ This repository documents my hands-on learning and practical implementation of L
 
 ## ▶️ How to Run
 
+Install dependencies:
+
 ```bash
 pip install -r requirements.txt
 ```
 
 **Week 1 - Day 2 (Basic Summarizer)**
+
 ```bash
 python week1/day2/basic_summarizer.py
 ```
 
 **Week 1 - Day 3 (Structured Summarizer)**
+
 ```bash
 python week1/day3/structured_summarizer.py
 ```
 
 **Week 2 - Day 2 (Live Gemini Router UI)**
+
 ```bash
 cd week2/day2
 python day2_ui.py
 ```
 
 **Week 2 - Day 3 (AI Store Assistant with Memory)**
+
 ```bash
 cd week2/day3
 python day3_chat.py
 ```
 
 **Week 2 - Day 4 (Airline AI Agent with SQL Tools)**
+
 ```bash
 cd week2/day4
 python day4_tools.py
 ```
 
 **Week 3 - Day 1 (Hugging Face + Colab)**
+
 ```bash
 # Open the Colab link from course materials
 cd week3/day1
@@ -187,22 +207,33 @@ python text_to_speech.py
 ```
 
 **Week 3 - Day 2 (Hugging Face Pipelines)**
+
 ```bash
 # Open the Colab link from course materials
 cd week3/day2
 python pipelines_demo.py
 ```
 
+**Week 3 - Day 3 (Tokenizers & Chat Templates)**
+
+```bash
+cd week3/day3
+python tokenizer_demo.py
+```
+
 ---
 
 ## 💡 Key Insight
 
-> Calling an LLM is easy.  
-> Building reliable systems around LLMs is the real challenge.  
-> Running open-source models yourself is the next superpower.
+> Calling an LLM is easy.
+>
+> Building reliable systems around LLMs is the real challenge.
+>
+> Understanding how text becomes tokens and running open-source models yourself is the next superpower.
 
 ---
 
 ## 👩‍💻 Author
 
-Sri Lekha
+**Sri Lekha**
+```
