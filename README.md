@@ -1,3 +1,4 @@
+```
 # 🚀 LLM Engineering Journey
 
 This repository documents my hands-on learning and practical implementation of Large Language Models (LLMs), focusing on building reliable, real-world systems.
@@ -94,6 +95,15 @@ This repository documents my hands-on learning and practical implementation of L
 
 ---
 
+### ✅ Day 4: Deep Model Architectures, Quantization & Streaming Inference
+- Explored internal structure of Transformer models
+- Learned three main parts: **Embedding Layer** (converts words to numbers), **Decoder Layers** (processes with Self-Attention + MLP), and **LM Head** (predicts next word)
+- Understood **Quantization** – converts 16-bit numbers to 4-bit, reducing GPU memory by 4x with almost no quality loss
+- Learned **Streaming Inference** – `model.generate()` predicts tokens step-by-step, while `TextStreamer` shows output in real-time as each word is generated
+- **Key Takeaway:** Quantization makes large models run on limited hardware; streaming creates better user experience
+
+---
+
 ## 🛠️ Projects Built
 
 ### 🔹 Chat API
@@ -137,6 +147,8 @@ This repository documents my hands-on learning and practical implementation of L
 - **Google Colab** = Rent powerful computers in the cloud
 - **Training** = teaching the AI (done once, expensive)
 - **Inference** = using the AI (what we do daily, cheap)
+- **Quantization** = shrink models to fit in less memory
+- **Streaming** = show output word-by-word for better user experience
 
 ---
 
@@ -221,6 +233,14 @@ cd week3/day3
 python tokenizer_demo.py
 ```
 
+**Week 3 - Day 4 (Quantization & Streaming)**
+
+```bash
+cd week3/day4
+python quantization_demo.py
+python streaming_demo.py
+```
+
 ---
 
 ## 💡 Key Insight
@@ -236,4 +256,4 @@ python tokenizer_demo.py
 ## 👩‍💻 Author
 
 **Sri Lekha**
-```
+---
