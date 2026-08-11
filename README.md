@@ -1,259 +1,385 @@
-```
 # 🚀 LLM Engineering Journey
 
-This repository documents my hands-on learning and practical implementation of Large Language Models (LLMs), focusing on building reliable, real-world systems.
+This repository documents my hands-on learning journey in LLM Engineering, covering everything from basic LLM API interactions to open-source models, structured outputs, function calling, conversation memory, Hugging Face, quantization, and streaming inference.
+
+The goal is to move beyond simply using LLMs and understand how to build reliable, practical, and real-world LLM applications.
 
 ---
 
-## 📌 Week 1 - Foundations
+## 📌 Week 1 — Foundations
 
 ### ✅ Day 1: Basic LLM Interaction
-- Connected Python with LLM APIs
-- Built a prompt → response pipeline
-- Learned basic prompt engineering
 
----
+- Connected Python with LLM APIs
+- Built a basic prompt → response pipeline
+- Learned the fundamentals of prompt engineering
 
 ### ✅ Day 2: Basic LLM Applications
+
 - Used Chat Completions API
 - Built a webpage summarizer
 - Extracted and cleaned HTML using BeautifulSoup
 - Understood token limits and model constraints
-- Compared cloud vs local models (Ollama)
-
----
+- Compared cloud-based models with local models using Ollama
 
 ### ✅ Day 3: LLM Output Control & Reliability
-- Learned that LLM outputs are **not reliable by default**
-- Implemented structured JSON output
-- Added JSON parsing, output validation, retry mechanisms, and schema handling
-- Built a multi-step pipeline for reliability
 
----
+Learned that LLM outputs are probabilistic and not reliable by default.
 
-### ✅ Day 5: Pipeline-Based Project (AI Brochure Generator)
+Implemented:
+
+- Structured JSON output
+- JSON parsing
+- Output validation
+- Retry mechanisms
+- Schema handling
+- Multi-step LLM pipelines
+
+### ✅ Day 5: Pipeline-Based Project — AI Brochure Generator
+
 🔗 Project: https://github.com/srilekha42/ai-brochure-generator
 
 - Scraped website content with retry handling
 - Extracted and filtered internal links
-- Identified key pages (About, Docs, Careers)
+- Identified important pages such as About, Documentation, and Careers
 - Generated structured brochure output
 
 ---
 
-## 📌 Week 2 - Advanced Interfaces & Conversation Systems
+# 📌 Week 2 — Advanced Interfaces & Conversation Systems
 
 ### ✅ Day 2: Dynamic Model Routing & Streaming UIs
-- Built multi-model UI with Gradio Blocks
-- Added real-time token streaming using Python generators (`yield`)
-- Connected to Google GenAI SDK
-- Learned streaming shows answers as they generate (not all at once)
 
----
+- Built a multi-model UI using Gradio Blocks
+- Added real-time token streaming using Python generators (`yield`)
+- Connected applications with the Google GenAI SDK
+- Learned how streaming displays responses as they are generated instead of waiting for the complete response
 
 ### ✅ Day 3: Conversation History & System Personas
-- Fixed stateless API limitation with conversation memory
-- Added system instructions for brand voice control
-- Built foundation for RAG pipelines
 
----
+- Understood the stateless nature of LLM APIs
+- Implemented conversation memory
+- Added system instructions for controlling brand/persona behavior
+- Built the foundation for future RAG pipelines
 
 ### ✅ Day 4: Function Calling & Relational Database Tools
-- Built AI Agent that calls external tools
-- Connected Gemini to SQLite database
-- Enabled multi-tool data aggregation
+
+- Built an AI Agent capable of calling external tools
+- Connected Gemini with a SQLite database
+- Implemented multi-tool data aggregation
+- Learned how LLMs can interact with external systems through function calling
 
 ---
 
-## 📌 Week 3 - Open-Source Foundations
+# 📌 Week 3 — Open-Source LLM Foundations
 
 ### ✅ Day 1: Hugging Face & Google Colab
-- Moved from paid APIs to free open-source models
-- Used **Hugging Face** for models (2M+ free)
-- Used **Google Colab** for cloud GPUs (free T4 with 15GB VRAM)
-- Learned GPU = parallel math, VRAM = model must fit entirely
-- Built Text-to-Speech and Image Generator
-- **Key Takeaway:** Can run free models on rented GPUs—no longer API-dependent
+
+Moved from paid APIs toward free and open-source AI models.
+
+Learned:
+
+- Hugging Face model ecosystem
+- Google Colab for cloud GPU computing
+- NVIDIA T4 GPU with approximately 15 GB VRAM
+- GPU = parallel mathematical computation
+- VRAM = memory required to load and run models
+
+Built:
+
+- Text-to-Speech application
+- Image generation application
+
+**Key Takeaway:**
+
+> Open-source models can be run on rented cloud GPUs, reducing dependency on paid LLM APIs.
 
 ---
 
 ### ✅ Day 2: Hugging Face Pipelines
-- Learned two API levels: **Pipelines** (easy) and **Tokenizers/Models** (advanced)
-- Used pipelines for common AI tasks
-- Built Sentiment Analysis, NER, Question Answering, Summarization, Translation, Zero-Shot Classification, Text Generation, Image Generation, and Text-to-Speech
-- **Key Takeaway:** Small specialized models are faster, cheaper, and good enough for many tasks
+
+Learned the two major API levels in Hugging Face Transformers:
+
+- **Pipelines** → high-level and easy to use
+- **Tokenizers + Models** → lower-level and more customizable
+
+Built implementations for:
+
+- Sentiment Analysis
+- Named Entity Recognition (NER)
+- Question Answering
+- Summarization
+- Translation
+- Zero-Shot Classification
+- Text Generation
+- Image Generation
+- Text-to-Speech
+
+**Key Takeaway:**
+
+> Small, specialized models can often be faster, cheaper, and sufficient for many real-world AI tasks.
 
 ---
 
 ### ✅ Day 3: Tokenizers, Special Tokens & Chat Templates
-- Learned that LLMs understand **numbers (Token IDs), not text**
-- Explored how **tokenizers** convert text into tokens and token IDs
-- Learned that **every model has its own tokenizer and vocabulary**
-- Understood **special tokens** used to mark the start and end of messages
-- Learned how **`apply_chat_template()`** formats chat conversations before tokenization
-- **Key Takeaway:** Every message must be converted into the exact token format expected by the model before inference.
+
+Learned how LLMs process text internally.
+
+Explored:
+
+- Tokenization
+- Token IDs
+- Model vocabularies
+- Special tokens
+- Chat templates
+- `apply_chat_template()`
+- Converting conversations into model-specific formats
+
+**Key Takeaway:**
+
+> LLMs don't directly understand raw text. Text is converted into token IDs and formatted according to the model's expected input structure.
 
 ---
 
-### ✅ Day 4: Deep Model Architectures, Quantization & Streaming Inference
-- Explored internal structure of Transformer models
-- Learned three main parts: **Embedding Layer** (converts words to numbers), **Decoder Layers** (processes with Self-Attention + MLP), and **LM Head** (predicts next word)
-- Understood **Quantization** – converts 16-bit numbers to 4-bit, reducing GPU memory by 4x with almost no quality loss
-- Learned **Streaming Inference** – `model.generate()` predicts tokens step-by-step, while `TextStreamer` shows output in real-time as each word is generated
-- **Key Takeaway:** Quantization makes large models run on limited hardware; streaming creates better user experience
+### ✅ Day 4: Transformer Architecture, Quantization & Streaming Inference
+
+Explored the internal architecture of Transformer-based language models.
+
+Studied three major components:
+
+1. **Embedding Layer** — converts token IDs into numerical representations
+2. **Decoder Layers** — process information using Self-Attention and MLP layers
+3. **LM Head** — predicts probabilities for the next token
+
+### Quantization
+
+Learned how quantization:
+
+- Converts higher-precision weights into lower-precision representations
+- Can convert FP16 models to 4-bit representations
+- Significantly reduces memory requirements
+- Makes larger models easier to run on limited hardware
+
+### Streaming Inference
+
+- `model.generate()` produces tokens progressively
+- `TextStreamer` displays generated tokens in real time
+- Improves the user experience by avoiding long waits for complete responses
+
+**Key Takeaway:**
+
+> Quantization helps large models fit into limited GPU memory, while streaming makes LLM applications feel faster and more interactive.
 
 ---
 
-## 🛠️ Projects Built
+# 🛠️ Projects Built
 
 ### 🔹 Chat API
+
 - System + user message structure
 - OpenAI-compatible API format
+- Basic LLM interaction
 
-### 🔹 Local LLM (Ollama)
-- Ran LLM locally without API cost
+### 🔹 Local LLM with Ollama
+
+- Ran an LLM locally
+- Reduced dependency on cloud APIs
+- Explored local inference
 
 ### 🔹 Webpage Summarizer
-- Extract, clean, summarize webpage content
+
+**URL → HTML → Clean Content → Summary**
+
+- Extracted webpage content
+- Cleaned HTML
+- Generated summaries using an LLM
 
 ### 🔹 Structured Summarizer
-- Convert webpage → structured JSON with validation
+
+**Webpage → LLM → Structured JSON → Validation**
+
+- Generated structured outputs
+- Added JSON parsing
+- Added validation and retry handling
 
 ### 🔹 AI Brochure Generator
-- URL → Scraper → Link Filter → Content Selector → Generator
+
+**URL → Scraper → Link Filter → Content Selector → Generator**
+
+- Scraped company websites
+- Identified relevant pages
+- Generated structured company brochures
 
 ### 🔹 Live Gemini Router UI
-- Side-by-side Gradio UI with real-time streaming
+
+- Built with Gradio
+- Multi-model comparison
+- Real-time streaming
+- Google GenAI SDK integration
 
 ### 🔹 AI Store Assistant with Memory
-- Chatbot with conversation tracking
+
+- Conversation tracking
+- Persistent chat context
+- System persona
+- AI-assisted store interactions
 
 ### 🔹 Open-Source Image & Audio Generator
-- Hugging Face pipelines on Google Colab
+
+- Hugging Face pipelines
+- Google Colab GPU
+- Image generation
+- Text-to-Speech
 
 ---
 
-## 🧠 Key Concepts
+# 🧠 Key Concepts Learned
 
-- LLMs are **probabilistic systems**
-- Reliability requires pipelines, not single calls
-- LLM APIs are **stateless**; memory must be managed explicitly
-- **LLMs understand Token IDs (numbers), not plain text**
-- **Every model has its own tokenizer and vocabulary**
-- **Chat templates format conversations before tokenization**
-- **GPUs** handle parallel matrix math
-- **VRAM** is the workbench—models must fit completely
-- **Hugging Face** = App Store for free AI models
-- **Google Colab** = Rent powerful computers in the cloud
-- **Training** = teaching the AI (done once, expensive)
-- **Inference** = using the AI (what we do daily, cheap)
-- **Quantization** = shrink models to fit in less memory
-- **Streaming** = show output word-by-word for better user experience
+### LLM Fundamentals
+
+- LLMs are probabilistic systems
+- LLM outputs can be unpredictable
+- Reliability requires validation and pipelines
+- A single LLM call is not always sufficient for production applications
+
+### APIs & Applications
+
+- LLM APIs are generally stateless
+- Conversation memory must be managed explicitly
+- Function calling allows models to interact with external tools
+- Structured outputs improve reliability
+
+### Tokenization
+
+- LLMs operate on token IDs rather than raw text
+- Every model has its own tokenizer and vocabulary
+- Special tokens define conversation structure
+- Chat templates format conversations before tokenization
+
+### Hardware & Inference
+
+- GPUs accelerate parallel matrix operations
+- VRAM determines which models can fit on a GPU
+- Training = teaching a model
+- Inference = using a trained model
+- Quantization reduces model memory requirements
+- Streaming improves the user experience
+
+### Open Source AI
+
+- Hugging Face provides access to a large ecosystem of open-source models
+- Google Colab provides access to cloud computing resources
+- Open-source models can be run locally or on cloud GPUs
 
 ---
 
-## ⚙️ Tech Stack
+# ⚙️ Tech Stack
 
-- Python
-- OpenAI-compatible APIs
-- Google GenAI SDK
-- Gradio (UI Framework)
-- Ollama (Local LLM)
-- BeautifulSoup
-- Python-dotenv
-- Hugging Face Hub
-- Transformers
-- Diffusers
-- Google Colab
+| Technology | Purpose |
+|---|---|
+| **Python** | Core programming language |
+| **OpenAI-Compatible APIs** | LLM API integration |
+| **Google GenAI SDK** | Gemini integration |
+| **Gradio** | Interactive AI interfaces |
+| **Ollama** | Local LLM inference |
+| **BeautifulSoup** | Web scraping & HTML parsing |
+| **python-dotenv** | Environment variable management |
+| **Hugging Face Hub** | Open-source model ecosystem |
+| **Transformers** | LLMs & NLP pipelines |
+| **Diffusers** | Image generation |
+| **Google Colab** | Cloud GPU environment |
+| **SQLite** | Database integration |
 
 ---
 
-## ▶️ How to Run
+# 📂 Repository Structure
 
-Install dependencies:
+LLM-Engineering/
+│
+├── week-1/
+│   ├── chat-api/
+│   ├── webpage-summarizer/
+│   ├── structured-summarizer/
+│   └── ai-brochure-generator/
+│
+├── week-2/
+│   ├── gemini-router/
+│   ├── conversation-memory/
+│   └── function-calling/
+│
+├── week-3/
+│   ├── huggingface-pipelines/
+│   ├── tokenizers/
+│   ├── transformer-architecture/
+│   ├── quantization/
+│   └── streaming-inference/
+│
+├── requirements.txt
+└── README.md
 
-```bash
+---
+
+# ▶️ How to Run
+
+### 1. Clone the repository
+
+git clone <your-repository-url>
+
+cd LLM-Engineering
+
+### 2. Install dependencies
+
 pip install -r requirements.txt
-```
 
-**Week 1 - Day 2 (Basic Summarizer)**
+### 3. Configure environment variables
 
-```bash
-python week1/day2/basic_summarizer.py
-```
+Create a `.env` file and add the required API keys:
 
-**Week 1 - Day 3 (Structured Summarizer)**
+OPENAI_API_KEY=your_api_key
+GOOGLE_API_KEY=your_api_key
 
-```bash
-python week1/day3/structured_summarizer.py
-```
+> Only add the keys required by the specific project you want to run.
 
-**Week 2 - Day 2 (Live Gemini Router UI)**
+### 4. Run a project
 
-```bash
-cd week2/day2
-python day2_ui.py
-```
+Navigate to the required project directory and run its Python/Gradio application.
 
-**Week 2 - Day 3 (AI Store Assistant with Memory)**
-
-```bash
-cd week2/day3
-python day3_chat.py
-```
-
-**Week 2 - Day 4 (Airline AI Agent with SQL Tools)**
-
-```bash
-cd week2/day4
-python day4_tools.py
-```
-
-**Week 3 - Day 1 (Hugging Face + Colab)**
-
-```bash
-# Open the Colab link from course materials
-cd week3/day1
-python image_generator.py
-python text_to_speech.py
-```
-
-**Week 3 - Day 2 (Hugging Face Pipelines)**
-
-```bash
-# Open the Colab link from course materials
-cd week3/day2
-python pipelines_demo.py
-```
-
-**Week 3 - Day 3 (Tokenizers & Chat Templates)**
-
-```bash
-cd week3/day3
-python tokenizer_demo.py
-```
-
-**Week 3 - Day 4 (Quantization & Streaming)**
-
-```bash
-cd week3/day4
-python quantization_demo.py
-python streaming_demo.py
-```
+python app.py
 
 ---
 
-## 💡 Key Insight
+# 🎯 Learning Goal
 
-> Calling an LLM is easy.
->
-> Building reliable systems around LLMs is the real challenge.
->
-> Understanding how text becomes tokens and running open-source models yourself is the next superpower.
+This repository is a continuous record of my progress toward becoming an LLM / AI Engineer.
+
+The focus is not just on calling an LLM API, but on understanding the complete process:
+
+LLM APIs
+   ↓
+Prompt Engineering
+   ↓
+Structured Outputs
+   ↓
+Reliable Pipelines
+   ↓
+Conversation Memory
+   ↓
+Function Calling
+   ↓
+Open-Source Models
+   ↓
+Tokenization
+   ↓
+Transformers
+   ↓
+Quantization
+   ↓
+Streaming Inference
+   ↓
+Real-World LLM Applications
 
 ---
 
-## 👩‍💻 Author
+## 🚀 Learning Philosophy
 
-**Sri Lekha**
----
+**Learn → Build → Break → Debug → Improve → Repeat**
