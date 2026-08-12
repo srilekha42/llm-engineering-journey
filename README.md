@@ -1,6 +1,6 @@
 # 🚀 LLM Engineering Journey
 
-This repository documents my hands-on learning journey in LLM Engineering, covering everything from basic LLM API interactions to open-source models, structured outputs, function calling, conversation memory, Hugging Face, quantization, and streaming inference.
+This repository documents my hands-on learning journey in LLM Engineering, covering everything from basic LLM API interactions to open-source models, structured outputs, function calling, conversation memory, Hugging Face, quantization, streaming inference, model selection strategies, and LLM benchmarking.
 
 The goal is to move beyond simply using LLMs and understand how to build reliable, practical, and real-world LLM applications.
 
@@ -71,7 +71,7 @@ Implemented:
 
 ---
 
-# 📌 Week 3 — Open-Source LLM Foundations
+# 📌 Week 3 — Open-Source LLM Foundations & Standalone Builds
 
 ### ✅ Day 1: Hugging Face & Google Colab
 
@@ -172,6 +172,44 @@ Learned how quantization:
 
 ---
 
+### ✅ Day 5: End-to-End Multimodal Pipeline — Audio-to-Minutes Generator
+
+🔗 Standalone Project Repository: `audio-to-minutes-generator`
+
+Combined Whisper audio transcription, structured LLM extraction, and automated document generation.
+
+Implemented:
+
+- **Whisper Integration:** Transcribed audio files into structured text
+- **Automated Summarization:** Extracted key topics, decisions, action items, and owners
+- **Document Output:** Exported meeting minutes directly into clean Markdown/Docx formats
+
+**Key Takeaway:**
+
+> Combining specialized multimodal models (e.g., Whisper for speech) with LLMs creates powerful automated workflow pipelines.
+
+---
+
+# 📌 Week 4 — Model Selection & Evaluation Strategy
+
+### ✅ Day 1: Model Selection Strategy, Chinchilla Scaling & Benchmarks
+
+Explored how to systematically select the right model for a specific production task rather than defaulting to the largest model.
+
+Covered:
+
+- **Model Specifications:** Learned to choose the right model based on task, cost, speed, context window, and accuracy.
+- **Chinchilla Scaling Laws:** Learned how model size and training data affect model performance.
+- **Hard Benchmarks:** Explored GPQA, MMLU-Pro, AIME, LiveCodeBench, MuSR, and HLE.
+- **Benchmark Limitations:** Learned about contamination, saturation, and narrow benchmark testing.
+- **Forced Reasoning (Chain of Thought):** Compared direct prompting with step-by-step reasoning using a Groq model.
+
+**Key Takeaway:**
+
+> There is no single "best" model—only the right model for a given task, speed, cost, and accuracy requirement.
+
+---
+
 # 🛠️ Projects Built
 
 ### 🔹 Chat API
@@ -231,45 +269,55 @@ Learned how quantization:
 - Image generation
 - Text-to-Speech
 
+### 🔹 Audio-to-Minutes Generator 
+
+**Audio → Whisper Transcription → LLM Extraction → Meeting Minutes**
+
+- Transcribed raw audio to text
+- Processed transcripts via LLM to extract key decisions and action items
+- Formatted structured outputs into meeting minutes documents
+
+### 🔹 Forced Reasoning Benchmark Evaluator  
+
+**Logic Puzzle → Direct Prompting vs. Forced Reasoning (Groq API)**
+
+- Evaluated standard output against step-by-step Chain-of-Thought prompting
+- Demonstrated how scratchpad token allocation prevents logical hallucinations
+
 ---
 
 # 🧠 Key Concepts Learned
 
-### LLM Fundamentals
+### LLM Fundamentals & Model Selection
 
-- LLMs are probabilistic systems
-- LLM outputs can be unpredictable
-- Reliability requires validation and pipelines
-- A single LLM call is not always sufficient for production applications
+- LLMs are probabilistic systems requiring validation pipelines
+- Model selection is guided by context windows, latency, costs, parameters, and benchmark fits
+- Forced reasoning (intermediate token generation) drastically improves task performance
 
 ### APIs & Applications
 
-- LLM APIs are generally stateless
-- Conversation memory must be managed explicitly
-- Function calling allows models to interact with external tools
-- Structured outputs improve reliability
+- LLM APIs are generally stateless; conversation memory must be managed explicitly
+- Function calling allows models to interact with external tools and databases
+- Structured JSON outputs improve production reliability
 
-### Tokenization
+### Tokenization & Transformers
 
 - LLMs operate on token IDs rather than raw text
-- Every model has its own tokenizer and vocabulary
-- Special tokens define conversation structure
-- Chat templates format conversations before tokenization
+- Every model relies on specific tokenizers, vocabularies, and chat templates
+- Transformers use Embedding Layers, Decoder Attention Layers, and LM Heads to predict next tokens
 
-### Hardware & Inference
+### Hardware, Inference & Scaling
 
-- GPUs accelerate parallel matrix operations
-- VRAM determines which models can fit on a GPU
-- Training = teaching a model
-- Inference = using a trained model
-- Quantization reduces model memory requirements
-- Streaming improves the user experience
+- GPUs accelerate parallel matrix operations; VRAM limits downloadable model sizes
+- Quantization reduces memory requirements, fitting models into smaller hardware limits
+- Chinchilla Scaling defines the ratio between parameters and training tokens
+- Streaming inference enhances UI/UX responsiveness
 
-### Open Source AI
+### Benchmarking & Open Source
 
-- Hugging Face provides access to a large ecosystem of open-source models
-- Google Colab provides access to cloud computing resources
-- Open-source models can be run locally or on cloud GPUs
+- Standard benchmarks (GPQA, AIME, MuSR, LiveCodeBench) gauge multi-domain capabilities
+- Beware of training data contamination and benchmark saturation when evaluating candidate models
+- Hugging Face, Groq, and Google AI Studio provide powerful open-source & fast inference options
 
 ---
 
@@ -278,15 +326,15 @@ Learned how quantization:
 | Technology | Purpose |
 |---|---|
 | **Python** | Core programming language |
-| **OpenAI-Compatible APIs** | LLM API integration |
+| **OpenAI / Groq API** | LLM API integration & ultra-fast open inference |
 | **Google GenAI SDK** | Gemini integration |
 | **Gradio** | Interactive AI interfaces |
 | **Ollama** | Local LLM inference |
 | **BeautifulSoup** | Web scraping & HTML parsing |
 | **python-dotenv** | Environment variable management |
 | **Hugging Face Hub** | Open-source model ecosystem |
-| **Transformers** | LLMs & NLP pipelines |
-| **Diffusers** | Image generation |
+| **Transformers & Diffusers** | LLMs, NLP pipelines, & image generation |
+| **Whisper** | Audio transcription pipeline |
 | **Google Colab** | Cloud GPU environment |
 | **SQLite** | Database integration |
 
@@ -294,31 +342,34 @@ Learned how quantization:
 
 # 📂 Repository Structure
 
-LLM-Engineering/
+```text
+llm-engineering-journey/
 │
-├── week-1/
+├── week1/
 │   ├── chat-api/
 │   ├── webpage-summarizer/
 │   ├── structured-summarizer/
 │   └── ai-brochure-generator/
 │
-├── week-2/
+├── week2/
 │   ├── gemini-router/
 │   ├── conversation-memory/
 │   └── function-calling/
 │
-├── week-3/
-│   ├── huggingface-pipelines/
-│   ├── tokenizers/
-│   ├── transformer-architecture/
-│   ├── quantization/
-│   └── streaming-inference/
+├── week3/
+│   ├── day1/  <-- Hugging Face & Colab Setup
+│   ├── day2/  <-- Transformers Pipelines
+│   ├── day3/  <-- Tokenizers & Chat Templates
+│   ├── day4/  <-- Transformer Architecture & Quantization
+│   └── day5/  <-- README link to audio-to-minutes-generator & week3 notes
+│
+├── week4/
+│   └── day1/  <-- Model Selection Matrix & Forced Reasoning Evaluator
 │
 ├── requirements.txt
 └── README.md
 
----
-
+--- 
 # ▶️ How to Run
 
 ### 1. Clone the repository
@@ -337,6 +388,7 @@ Create a `.env` file and add the required API keys:
 
 OPENAI_API_KEY=your_api_key
 GOOGLE_API_KEY=your_api_key
+GROQ_API_KEY=your_groq_api_key
 
 > Only add the keys required by the specific project you want to run.
 
