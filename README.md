@@ -981,7 +981,8 @@ Structured Meeting Minutes
 
 ---
 
-# 📌 Week 4 — Model Selection & Evaluation
+
+## Week 4 — Model Selection & Evaluation
 
 Week 4 focuses on answering an important question:
 
