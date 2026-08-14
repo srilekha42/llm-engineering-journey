@@ -974,15 +974,14 @@ Qwen2.5-0.5B-Instruct
 AI Understanding & Summarization
       ↓
 Structured Meeting Minutes
-
 ### Key Takeaway
 
 > Different AI models can be combined to solve different parts of one real-world problem.
-
+ 
 ---
 
 
-## Week 4 — Model Selection & Evaluation
+# 🧠 Week 4 — Model Selection & Evaluation
 
 Week 4 focuses on answering an important question:
 
@@ -990,14 +989,14 @@ Week 4 focuses on answering an important question:
 
 Instead of always selecting the largest model, I learned to consider:
 
-* Intelligence
-* Accuracy
-* Cost
-* Speed
-* Latency
-* Context window
-* Task requirements
-* Benchmark performance
+- Intelligence
+- Accuracy
+- Cost
+- Speed
+- Latency
+- Context window
+- Task requirements
+- Benchmark performance
 
 ---
 
