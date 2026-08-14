@@ -926,16 +926,50 @@ the output can be displayed as it is generated.
 
 🔗 Project Repository: https://github.com/srilekha42/audio-to-minutes-generator
 
-Built an end-to-end AI application that converts a meeting audio file into organized meeting minutes.
+Built an end-to-end AI application that converts a meeting audio file into structured meeting minutes.
 
-The main idea is simple:
+The project combines **Speech-to-Text** and a **Language Model** to automatically understand a meeting and create a useful summary.
 
- 
+---
+
+### 🎯 What Does This Project Do?
+
+Normally, after a meeting, someone has to:
+
+- Listen to the meeting recording
+- Write down important discussion points
+- Note the decisions
+- Identify action items
+- Prepare meeting minutes
+
+This project automates this process.
+
+The user provides a meeting audio file, and the application produces:
+
+- Executive Summary
+- Key Discussion Points
+- Decisions Made
+- Action Items
+- Next Steps
+
+---
+
+### 🔄 Complete Pipeline
+
+```text
 Meeting Audio
+      ↓
+Audio Preprocessing
+      ↓
+Whisper-Small
       ↓
 Speech-to-Text
       ↓
-Transcript
+Raw Transcript
+      ↓
+Transcript Chunking
+      ↓
+Qwen2.5-0.5B-Instruct
       ↓
 AI Understanding & Summarization
       ↓
