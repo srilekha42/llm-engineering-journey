@@ -953,7 +953,6 @@ The user provides a meeting audio file, and the application produces:
 - Next Steps
 
 ---
-
 ### 🔄 Complete Pipeline
 
 ```text
@@ -974,14 +973,15 @@ Qwen2.5-0.5B-Instruct
 AI Understanding & Summarization
       ↓
 Structured Meeting Minutes
-### Key Takeaway
+```
+
+### 🔑 Key Takeaway
 
 > Different AI models can be combined to solve different parts of one real-world problem.
- 
+
 ---
 
-
-# 🧠 Week 4 — Model Selection & Evaluation
+## 🧠 Week 4 — Model Selection & Evaluation
 
 Week 4 focuses on answering an important question:
 
