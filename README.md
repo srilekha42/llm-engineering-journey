@@ -1332,6 +1332,96 @@ Example:
 > A company's unique data can become an important advantage when building AI products.
 
 ---
+### Week 4, Day 3: Python-to-C++ Translation & Performance Benchmarking
+
+- **Objective**: Learn how an AI model can help convert slow Python code into faster C++ code and measure whether the new code actually performs better.
+
+- **What I Learned**:
+  - Python is easy to write but can be slower for heavy numerical calculations because it runs through a Python runtime.
+  - C++ is a compiled language, which means the code is converted into machine-level instructions before execution.
+  - An LLM can be used to automatically convert Python code into C++.
+  - The generated C++ code must be **tested for correctness** and **measured for performance** instead of assuming that it is better.
+  - Compiler options such as `-O3` can optimize the C++ code for better performance.
+
+- **How the Project Works**:
+
+```text
+Python Code
+     ↓
+Run Python & Measure Time
+     ↓
+Send Code to Gemini
+     ↓
+Generate C++ Code
+     ↓
+Compile C++ using g++
+     ↓
+Run C++ & Measure Time
+     ↓
+Compare Results
+     ↓
+Calculate Speedup
+```
+
+- **Benchmark Result**:
+  - Python Execution Time: **20.540165 seconds**
+  - C++ Execution Time: **0.264900 seconds**
+  - Speedup: **77.54×**
+  - Both programs produced the same result: **3.1415926486**
+
+- **Key Takeaway**: AI can help convert and optimize code, but the result should always be checked for both **correctness and actual performance**.
+
+---
+
+### Week 4, Day 4: Open-Source Models & Interactive Code Benchmarking
+
+- **Objective**: Learn how to test different AI models by using them to generate C++ code and measuring how well the generated code performs.
+
+- **What I Learned**:
+  - Different AI models can generate different solutions for the same programming task.
+  - Instead of choosing a model only from leaderboard scores, it is useful to test the model on a real task.
+  - AI models can be connected through different providers such as Google, Ollama, Groq, and OpenRouter.
+  - A **Gradio interface** can make model testing easier by providing a simple web interface.
+  - The generated C++ code can be compiled, executed, and benchmarked automatically.
+
+- **How the Project Works**:
+
+```text
+Select AI Model
+      ↓
+Provide Python Code
+      ↓
+AI Generates C++
+      ↓
+Compile C++ Code
+      ↓
+Run the Generated Code
+      ↓
+Measure Execution Time
+      ↓
+Compare with Python
+      ↓
+Display Results in Gradio
+```
+
+- **Performance Improvements Used**:
+  - **Multi-threading**: Uses multiple CPU cores to perform calculations at the same time.
+  - **Algebraic simplification**: Reduces unnecessary calculations to make the program faster.
+  - **Cache-line padding**: Helps reduce conflicts when multiple CPU threads access shared data.
+
+- **Benchmark Result**:
+  - Python Baseline: **20.540165 seconds**
+  - C++ Execution Time: **0.078501 seconds**
+  - C++ Result: **3.1415926486**
+  - Speedup: **~261.66×**
+
+- **Interactive Gradio Interface**:
+
+  The project provides a simple web interface where users can select an AI model and run the code conversion and benchmarking process.
+
+- **Key Takeaway**: Instead of choosing an AI model only because it has a high benchmark score, it is better to **test the model on the actual task** and compare both **correctness and real execution performance**.
+
+---
 
 # 🛠️ Projects Built During the Journey
 
