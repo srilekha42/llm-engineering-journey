@@ -1421,6 +1421,29 @@ Display Results in Gradio
 
 - **Key Takeaway**: Instead of choosing an AI model only because it has a high benchmark score, it is better to **test the model on the actual task** and compare both **correctness and real execution performance**.
 
+
+
+
+# Week 4 - Day 5: Polyglot Code Translation & Algorithmic Optimization
+
+## 🔗 Capstone Project Repository
+👉 **[python-to-cpp-rust-translator](https://github.com/srilekha42/python-to-cpp-rust-translator)**
+
+---
+
+## 📌 Core Takeaways
+
+* **Model-Centric vs. Business-Centric Metrics**:
+  * **Model-Centric**: Training-time loss functions (Cross-Entropy, MSE), Perplexity, and token accuracy. While easy to optimize and monitor, they do not guarantee commercial success.
+  * **Business-Centric**: Real-world KPIs such as runtime execution latency, compute resource reduction, and user satisfaction (CSAT).
+* **Algorithmic Refactoring via LLMs**:
+  * Advanced models do not merely perform syntax line-by-line translation; they analyze high-level logic.
+  * The baseline $O(N^2)$ brute-force Maximum Subarray problem was refactored directly into an optimal $O(N)$ single-pass algorithm (Kadane's algorithm).
+* **Polyglot Systems Compilation**:
+  * Evaluated bare-metal compiled binaries against interpreted Python.
+  * Native compiler flags (`g++ -O3` and `rustc -C opt-level=3`) combined with algorithmic refactoring achieved orders-of-magnitude execution speedups.
+
+
 ---
 
 # 🛠️ Projects Built During the Journey
@@ -1526,7 +1549,13 @@ Built an experiment to compare normal prompting with reasoning-focused prompting
 Built a blind A/B testing system to compare two AI models using the same prompt.
 
 ---
+## 🔹 Python to C++ & Rust Code Translator
 
+An interactive LLM optimization workbench that ports computationally intensive Python algorithms into native, high-performance C++ and Rust binaries with automated speedup benchmarking.
+
+👉 **Repository**: [python-to-cpp-rust-translator](https://github.com/srilekha42/python-to-cpp-rust-translator)
+
+---
 # 🧠 Key Concepts Learned
 
 ## LLM Basics
@@ -1751,7 +1780,10 @@ llm-engineering-journey/
 │
 ├── week4/
 │   ├── day1/
-│   └── day2/
+│   ├── day2/
+│   ├── day3/
+│   ├── day4/
+│   └── day5/
 │
 ├── requirements.txt
 └── README.md
